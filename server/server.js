@@ -26,7 +26,7 @@ app.post('/', progressController.addPR, (req, res) => {
 
 // update: patch request to edit date or weight
 app.patch('/', progressController.editPR, (req, res) => {
-  return res.status(200).send('success');
+  return res.status(200).json(res.locals.editedPR);
 })
 
 // delete: delete request to delete pr record / document

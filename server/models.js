@@ -1,6 +1,7 @@
 // linden CODESMITH
 
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 // mongo uri
 const MONGO_URI = 'mongodb+srv://linden:CODESMITH@cluster0.mo0ftyk.mongodb.net/?retryWrites=true&w=majority';
@@ -15,8 +16,6 @@ mongoose.connect(MONGO_URI, {
   .then(() => console.log('connected to MongoDB'))
   .catch(err => console.log(err));
 
-  const Schema = mongoose.Schema;
-
   // set schema for lifts collection
   const liftPRSchema = new Schema({
     date: { type: String, required: true },
@@ -28,6 +27,4 @@ mongoose.connect(MONGO_URI, {
   const LiftPR = mongoose.model('liftPR', liftPRSchema);
 
   // export model
-  module.exports = {
-    LiftPR
-  }
+  module.exports = LiftPR;
