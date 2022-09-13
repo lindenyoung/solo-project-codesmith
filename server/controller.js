@@ -3,9 +3,9 @@ const LiftPR = require('./models.js');
 
 const progressController = {};
 
-// get lifts
+// get all lift histories (desktop)
 progressController.getAllLifts = (req, res, next) => {
-  console.log('in the getLifts middleware');
+  console.log('in the getAllLifts middleware');
   LiftPR.find({/*lift: "bench press"*/})
     .then(data => {
       res.locals.allLiftHistory = data;
@@ -13,11 +13,28 @@ progressController.getAllLifts = (req, res, next) => {
     })
     .catch(err => {
       next({
-        log: 'error in the getLifts middleware',
+        log: 'error in the getAllLifts middleware',
         message: err
       });
     });
 };
+
+// get one lift history (mobile)
+progressController.getOneLift = (req, res, next) => {
+  console.log('in the getOneLift middleware');
+  // console.log('params lift: ', req.params.lift);
+  LiftPR.find({lift: req.params.lift})
+    .then(data => {
+      res.locals.oneLiftHistory = data;
+      next();
+    })
+    .catch(err => {
+      next({
+        log: 'error in the getOneLift middleware',
+        message: err
+      });
+    })
+}
 
 // add new PR
 progressController.addPR = (req, res, next) => {
@@ -28,7 +45,6 @@ progressController.addPR = (req, res, next) => {
     .then(data => {
       next();
     })
-    // *** invoke global error handler instead of just logging!
     .catch(err => {
       next({
         log: 'error in the addPR middleware',
@@ -40,8 +56,8 @@ progressController.addPR = (req, res, next) => {
 // edit a PR
 progressController.editPR = (req, res, next) => {
   console.log('in the editPR middleware');
-  console.log('params: ', req.params);
-  console.log('body: ', req.body);
+  // console.log('params: ', req.params);
+  // console.log('body: ', req.body);
   // make this dynamic using the patch request params and body
   LiftPR.findOneAndUpdate({date: req.params.date}, req.body, {new: true, useFindAndModify: false})
     .then(data => {

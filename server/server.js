@@ -12,16 +12,15 @@ app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../src/index.html'));
 });
 
-// read: get request to show all pr history(ies)
+// read: get request to show all pr histories (desktop)
 app.get('/lifts', progressController.getAllLifts, (req, res) => {
   return res.status(200).json(res.locals.allLiftHistory);
 });
 
-// get requests to show individual lift columns (mobile)
-
-// app.get('/:lift', progressController.getOneLift, (req, res) => {
-  // return res.status(200).json(res.locals.oneLiftHistory);
-// });
+// read: get request to show individual lift history (mobile)
+app.get('/:lift', progressController.getOneLift, (req, res) => {
+  return res.status(200).json(res.locals.oneLiftHistory);
+});
 
 // create: post request to create new pr record / document
 app.post('/', progressController.addPR, (req, res) => {
