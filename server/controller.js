@@ -19,7 +19,7 @@ progressController.getAllLifts = (req, res, next) => {
     });
 };
 
-// get one lift history (mobile)
+// get one lift history (mobile) - '9.15.22' date format works, '9/15/22' format doesn't
 progressController.getOneLift = (req, res, next) => {
   console.log('in the getOneLift middleware');
   // console.log('params lift: ', req.params.lift);
