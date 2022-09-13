@@ -4,11 +4,11 @@ const LiftPR = require('./models.js');
 const progressController = {};
 
 // get lifts
-progressController.getLifts = (req, res, next) => {
+progressController.getAllLifts = (req, res, next) => {
   console.log('in the getLifts middleware');
   LiftPR.find({/*lift: "bench press"*/})
     .then(data => {
-      res.locals.liftHistory = data;
+      res.locals.allLiftHistory = data;
       next();
     })
     .catch(err => {
@@ -42,8 +42,8 @@ progressController.editPR = (req, res, next) => {
   console.log('in the editPR middleware');
   console.log('params: ', req.params);
   console.log('body: ', req.body);
-  // need to make this dynamic using the patch request params and body
-  LiftPR.findOneAndUpdate({date: "yesterday"}, {weight: 100}, {new: true, useFindAndModify: false})
+  // make this dynamic using the patch request params and body
+  LiftPR.findOneAndUpdate({date: req.params.date}, req.body, {new: true, useFindAndModify: false})
     .then(data => {
       res.locals.editedPR = data;
       next();
@@ -60,7 +60,7 @@ progressController.editPR = (req, res, next) => {
 progressController.deletePR = (req, res, next) => {
   console.log('in the deletePR middleware');
   // make dynamic using req params
-  LiftPR.findOneAndDelete({date: "tomorrow"})
+  LiftPR.findOneAndDelete({date: req.params.date})
     .then(data => {
       res.locals.deletedPR = data;
       next();

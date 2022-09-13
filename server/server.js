@@ -12,12 +12,16 @@ app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../src/index.html'));
 });
 
-// read: get request to show pr history(ies)
-app.get('/lifts', progressController.getLifts, (req, res) => {
-  return res.status(200).json(res.locals.liftHistory);
-})
+// read: get request to show all pr history(ies)
+app.get('/lifts', progressController.getAllLifts, (req, res) => {
+  return res.status(200).json(res.locals.allLiftHistory);
+});
 
-// get request to show individual lift columns (mobile)
+// get requests to show individual lift columns (mobile)
+
+// app.get('/:lift', progressController.getOneLift, (req, res) => {
+  // return res.status(200).json(res.locals.oneLiftHistory);
+// });
 
 // create: post request to create new pr record / document
 app.post('/', progressController.addPR, (req, res) => {
@@ -25,12 +29,13 @@ app.post('/', progressController.addPR, (req, res) => {
 })
 
 // update: patch request to edit date or weight
-app.patch('/', progressController.editPR, (req, res) => {
+// '/:id' or '/:date' ?
+app.patch('/:date', progressController.editPR, (req, res) => {
   return res.status(200).json(res.locals.editedPR);
 })
 
 // delete: delete request to delete pr record / document
-app.delete('/', progressController.deletePR, (req, res) => {
+app.delete('/:date', progressController.deletePR, (req, res) => {
   return res.status(200).json(res.locals.deletedPR);
 })
 
