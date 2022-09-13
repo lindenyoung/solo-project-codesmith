@@ -31,7 +31,7 @@ app.patch('/', progressController.editPR, (req, res) => {
 
 // delete: delete request to delete pr record / document
 app.delete('/', progressController.deletePR, (req, res) => {
-  return res.status(200).send('success');
+  return res.status(200).json(res.locals.deletedPR);
 })
 
 // wildcard url handler

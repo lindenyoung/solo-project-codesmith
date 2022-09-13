@@ -42,6 +42,7 @@ progressController.editPR = (req, res, next) => {
   console.log('in the editPR middleware');
   console.log('params: ', req.params);
   console.log('body: ', req.body);
+  // need to make this dynamic using the patch request params and body
   LiftPR.findOneAndUpdate({date: "yesterday"}, {weight: 100}, {new: true, useFindAndModify: false})
     .then(data => {
       res.locals.editedPR = data;
@@ -58,7 +59,18 @@ progressController.editPR = (req, res, next) => {
 // delete a PR
 progressController.deletePR = (req, res, next) => {
   console.log('in the deletePR middleware');
-  next();
+  // make dynamic using req params
+  LiftPR.findOneAndDelete({date: "tomorrow"})
+    .then(data => {
+      res.locals.deletedPR = data;
+      next();
+    })
+    .catch(err => {
+      next({
+        log: 'error in the deletePR middleware',
+        message: err
+      });
+    })
 };
 
 module.exports = progressController;
