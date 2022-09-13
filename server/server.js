@@ -14,12 +14,14 @@ app.get('/', (req, res) => {
 
 // read: get request to show pr history(ies)
 app.get('/lifts', progressController.getLifts, (req, res) => {
-  return res.status(200).send('success');
+  return res.status(200).json(res.locals.liftHistory);
 })
+
+// get request to show individual lift columns (mobile)
 
 // create: post request to create new pr record / document
 app.post('/', progressController.addPR, (req, res) => {
-  return res.status(200).send('succes');
+  return res.status(200).json(res.locals.newPR);
 })
 
 // update: patch request to edit date or weight
