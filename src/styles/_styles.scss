@@ -92,6 +92,51 @@ h1, h2 {
   color: $orange;
 }
 
+// input forms section
+
+#form-header {
+  margin-bottom: .5vw;
+}
+
+#forms-section-test {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  // border: 4px solid $gray;
+  border-radius: 30px;
+  padding: 1vw;
+  // margin-top: 1vw;
+  margin-bottom: -2vw;
+}
+
+#lift-form-container {
+  // border: 3px solid $gray;
+  // width: 40%;
+  text-align: left;
+  label {
+    width: 50px;
+    display: inline-block;
+  }
+}
+
+#newpr-form-container {
+  // border: 3px solid $gray;
+  // width: 250px;
+  text-align: left;
+  label {
+    width: 70px;
+    display: inline-block;
+  }
+}
+
+#submit {
+  width: 125px;
+}
+
+#submit-button {
+  text-align: right;
+}
+
 #history-display-section {
   // border: 3px solid $gray;
   height: 80%;
