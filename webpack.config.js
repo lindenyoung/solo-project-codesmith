@@ -19,10 +19,10 @@ module.exports = {
 
   devServer: {
     // ???
-    // static: {
-    //   publicPath: '/dist',
-    //   directory: path.join(__dirname, 'dist')
-    // },
+    static: {
+      publicPath: '/dist',
+      directory: path.join(__dirname, 'dist')
+    },
     // proxy so fetch requests to dev server forward to express server
     proxy: {
       '/': 'http://localhost:3000'

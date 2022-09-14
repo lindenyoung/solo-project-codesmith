@@ -1,3 +1,15 @@
 body {
   background: $cream;
 }
+
+h1 {
+  color: $brown;
+  margin-left: 2vw;
+  margin-top: 2vw;
+}
+
+#header-component {
+  border: 3px solid $gray;
+  // rounded
+  // border-radius: 20px;
+}
