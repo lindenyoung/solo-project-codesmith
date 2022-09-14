@@ -105,7 +105,7 @@ h1, h2 {
   // border: 4px solid $gray;
   border-radius: 30px;
   padding: 1vw;
-  // margin-top: 1vw;
+  // margin-top: -.5vw;
   margin-bottom: -2vw;
 }
 
@@ -116,6 +116,10 @@ h1, h2 {
   label {
     width: 50px;
     display: inline-block;
+  }
+
+  #select-lift-menu {
+    width: 160px;
   }
 }
 
@@ -162,6 +166,19 @@ h1, h2 {
   margin: 2vw 10vw 0 10vw;
   padding: 1vw;
   overflow-y: scroll;
+}
+
+#pr-data-instance {
+  border: 3px solid $black;
+  border-radius: 10px;
+  padding: 1vw;
+  height: 20%;
+  width: 50%;
+
+  #pr-data-buttons {
+    text-align: left;
+    margin-top: .5vw;
+  }
 }
 
 // // > 400px
