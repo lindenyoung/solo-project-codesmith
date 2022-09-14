@@ -4,7 +4,7 @@ class NewPRButton extends Component {
   render() {
     return (
      <button id="new-pr-button">
-      New Pr!! Button
+      New Pr!!
      </button>
     )
   }

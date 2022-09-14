@@ -10,13 +10,13 @@ body {
 
 h1, h2 {
   color: $brown;
-  margin-left: 2vw;
-  margin-top: 2vw;
+  // margin-left: 2vw;
+  // margin-top: 2vw;
 }
 
 #app-section {
   height: 750px;
-  border: 7.5px solid $orange;
+  border: 10px solid $orange;
   margin: 15% 10%;
   border-radius: 30px;
   background: $cream;
@@ -26,14 +26,36 @@ h1, h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid $gray;
-  margin: 2vw 4vw 0 4vw;
+  border: 4px solid $black;
+  border-radius: 30px;
+  margin: 3vw 4vw 0 4vw;
   height: 10%;
   font-size: 1.5rem;
+  transition: .1s;
+
+  #brogress-header {
+    display: none;
+  }
+}
+
+#header-section:hover {
+  background-color: $black;
+  color: $orange;
+  opacity: .7;
+
+  #progress-header {
+    display: none;
+  }
+
+  #brogress-header {
+    display: block;
+    color: $orange;
+  }
 }
 
 #homepage-section {
-  border: 3px solid $gray;
+  border: 4px solid $black;
+  border-radius: 30px;
   height: 75%;
   margin: 2vw 4vw 0 4vw;
   padding: 1vw;
@@ -42,39 +64,57 @@ h1, h2 {
 #buttons-section {
   display: flex;
   flex-direction: row;
+  // justify-content: space-around;
   justify-content: center;
   // border: 3px solid $gray;
   padding: 1vw;
+  margin-top: 2vw;
 }
 
 #lift-history-button, #new-pr-button {
-  margin-right: 2vw;
+  margin-right: 1vw;
+  margin-left: 1vw;
   background-color: $orange;
   color: $black;
-  font-size: 1.1rem;
-  height: 5vw;
+  font-size: 1.2rem;
+  height: 7.5vw;
   width: 25vw;
+  border: none;
+  border-radius: 20px;
+  transition: .1s;
+  // font-weight: bold;
+}
+
+#lift-history-button:hover, #new-pr-button:hover {
+  opacity: .7;
+  background-color: $black;
+  cursor: pointer;
+  color: $orange;
 }
 
 #history-display-section {
-  border: 3px solid $gray;
-  height: 85%;
-  margin-top: 2vw;
+  // border: 3px solid $gray;
+  height: 80%;
+  // margin-top: 2vw;
 }
 
 #lift-history-header {
   display: flex;
   justify-content: center;
   font-size: 1.75rem;
+  margin: 1vw 2vw 1vw 2vw;
   // color: $black;
-  border: 3px solid $gray;
-  margin-right: 2vw;
+  // border: 3px solid $gray;
+  // border-radius: 30px;
 }
 
 #pr-data-display {
-  border: 3px solid $gray;
+  display: flex;
+  justify-content: center;
+  border: 4px solid $gray;
+  border-radius: 30px;
   height: 75%;
-  margin: -2vw 10vw 0 10vw;
+  margin: 2vw 10vw 0 10vw;
   padding: 1vw;
   overflow-y: scroll;
 }

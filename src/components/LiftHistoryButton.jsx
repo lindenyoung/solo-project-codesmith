@@ -4,7 +4,7 @@ class LiftHistoryButton extends Component {
   render() {
     return (
       <button id="lift-history-button">
-        Lift History Button
+        Lift History...
       </button>
     )
   }
