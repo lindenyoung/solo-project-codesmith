@@ -1,15 +1,83 @@
+// default styles = for mobile
+
+html {
+  font-size: 2vw;
+}
+
 body {
   background: $cream;
 }
 
-h1 {
+h1, h2 {
   color: $brown;
   margin-left: 2vw;
   margin-top: 2vw;
 }
 
-#header-component {
+#app-section {
+  height: 750px;
+  border: 3px solid $orange;
+  margin: 15% 10%;
+  // border-radius: 20px;
+}
+
+#header-section {
   border: 3px solid $gray;
+  margin: 1vw 1vw;
+  height: 10%;
   // rounded
   // border-radius: 20px;
 }
+
+#homepage-section {
+  border: 3px solid $gray;
+  height: 80%;
+  margin: 2vw 1vw;
+  padding: 1vw;
+}
+
+#buttons-section {
+  display: flex;
+  flex-direction: row;
+  border: 3px solid $black;
+  padding: 1vw;
+}
+
+#lift-history-button, #new-pr-button {
+  margin-right: 2vw;
+  background-color: $gray;
+}
+
+#historydisplay-section {
+  border: 3px solid $gray;
+  height: 85%;
+  margin-top: 2vw;
+}
+
+#lift-history-header {
+  border: 3px solid $gray;
+  margin-right: 2vw;
+}
+
+#pr-data-display {
+  border: 3px solid $gray;
+  height: 75%;
+  margin: 0 2vw;
+  padding: 1vw;
+  overflow-y: scroll;
+}
+
+// // > 400px
+// $breakpoint-tablet: 400px;
+// @media (min-width: $breakpoint-tablet) {
+//   #new-pr-button {
+//     background-color: $orange;
+//     // display: none;
+//   }
+// }
+
+// @media screen and (max-width: 399px) {
+//   #new-pr-button {
+//     background-color: $gray;
+//   }
+// }
