@@ -5,7 +5,7 @@ class Header extends Component {
   render() {
     return (
       <div id="header-section">
-        <h1>PRogress Header Component</h1>
+        <h1>PRogress</h1>
       </div>
     )
   }
