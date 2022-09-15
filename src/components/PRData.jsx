@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import PRDataCreator from './PRDataCreator.jsx';
 
 const PRData = props => {

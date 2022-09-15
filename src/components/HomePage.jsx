@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
-import { useState } from 'react';
-
-// import React, { Component, useState } from 'react';
-
-// import LiftHistoryButton from './LiftHistoryButton.jsx';
-// import NewPRButton from './NewPRButton.jsx';
+import React, { Component, useState } from 'react';
 import Forms from './Forms.jsx';
 import HistoryDisplay from './HistoryDisplay.jsx';
+// import LiftHistoryButton from './LiftHistoryButton.jsx';
+// import NewPRButton from './NewPRButton.jsx';
 
+// HomePage stateful component
 function HomePage() {
   // state = newPR data and lift selection
   // const [newPR, setNewPR] = useState({
@@ -15,8 +12,10 @@ function HomePage() {
   //   lift: '',
   //   weight: 0
   // });
+
+  // STATE
   const [lift, setLift] = useState('deadlift');
-  const [liftHistory, setLiftHistory] = useState('');
+  const [liftHistory, setLiftHistory] = useState([]);
   // do we need a way to keep track of dates / id's for patch / delete? or can we access those values internally as inputs?
 
   // functions
@@ -24,7 +23,7 @@ function HomePage() {
   // working dynamically rn!
   function handleNewPR(data) {
     data.preventDefault();
-    console.log(data.target);
+    // console.log(data.target);
     fetch('http://localhost:8080', {
       method: 'POST',
       headers: {
@@ -50,36 +49,32 @@ function HomePage() {
   // !!TO-DO!! working statically rn - it is receiving the correct data from db, but is not setting state
   // this is the trickiest function b/c it changes state lift history based on the state lift selection
   // figure out how to change state and have it update
+
+  function changeLift(e) {
+    e.preventDefault();
+    // console.log('e: ', e);
+    // console.log('e target val: ', e.target.value);
+    setLift(e.target.value);
+    console.log('new lift state: ', lift);
+  }
+
   function handleShowHistory(data) {
     data.preventDefault();
     // 'http://localhost:8080/' + data.target
     // setLiftHistory('hello world');
     // console.log('new state: ', liftHistory);
-    let localURL = 'http://localhost:8080/';
-    let input = data.target[0].value;
-    // console.log(input);
-    // console.log(localURL + input);
-    // data.target[0].value
+    const localURL = 'http://localhost:8080/';
+    const input = data.target[0].value;
     // change lift state to whatever was selected in lift form
-    // then send get request to fetch data for that specific lift from db
-    // + lift was working with lift state set to deadlift
+    // setLift('show pr history button'); // not working!!??
+    console.log('current lift state: ', lift);
+    // then send get request to fetch data from db for that specific lift
     fetch(localURL + input)
     .then((res) => res.json())
     .then((data) => {
-      // set liftHistory state
-      console.log(data);
-
-      // data is correct - the response array of pr instance objects
-      // now just need to set state to be that response data and then iterate over it in PRData
-
-      // setTimeout(() => {
-      //   setLiftHistory(data)
-      //   console.log('in timeout');
-      //   console.log(liftHistory);
-      // }, 250);
-      // setLiftHistory(...data);
-      // console.log('setting lift history');
-      // console.log('ta da: ', liftHistory);
+      console.log(data); // this data is correct - the response array of pr instance objects
+      // set liftHistory state to be response data and then iterate over it in PRData
+      // setLiftHistory(data);
     })
     .catch((err) => console.log('error'));
   }
@@ -132,7 +127,8 @@ function HomePage() {
       <button onClick={handleNewPR}>Test Post Request</button>
       <button onClick={handleEditPR}>Test Patch Request</button>
       <button onClick={handleDeletePR}>Delete Patch Request</button> */}
-      <Forms lift={lift} liftHistory={liftHistory} newPR={handleNewPR} showHistory={handleShowHistory} />
+      {/* <button onClick={() => setLift('how in the')}>setState test</button> */}
+      <Forms lift={lift} liftHistory={liftHistory} changeLift={changeLift} newPR={handleNewPR} showHistory={handleShowHistory} />
       <HistoryDisplay lift={lift} liftHistory={liftHistory} editPR={handleEditPR} deletePR={handleDeletePR} />
     </div>
 

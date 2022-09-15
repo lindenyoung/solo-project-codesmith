@@ -3,11 +3,11 @@ import React, { Component, useState } from 'react';
 // change to functional syntax
 const Forms = props => {
 
-  function getHistoryTest(data) {
-    data.preventDefault();
-    console.log(data.target[0].value);
-    console.log(typeof data.target[0].value);
-  }
+  // function getHistoryTest(data) {
+  //   data.preventDefault();
+  //   console.log(data.target[0].value);
+  //   console.log(typeof data.target[0].value);
+  // }
 
   return(
     <div id="forms-section-test">
@@ -17,7 +17,7 @@ const Forms = props => {
         <div id="form-header">Select lift to see PR history!</div>
         <form id="liftHistoryForm" onSubmit={props.showHistory}>
           <label>Lift: </label>
-          <input type="text" placeholder="deadlift"/><br/>
+          <input type="text" placeholder="deadlift" onChange={props.changeLift}/><br/>
           {/* <select id="select-lift-menu">
             <option value="0">-</option>
             <option value="1">bench-press</option>
