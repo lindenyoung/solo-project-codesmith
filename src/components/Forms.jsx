@@ -1,33 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 
 // change to functional syntax
 const Forms = props => {
 
-  // event handler for new PR - post request
-  const handleNewPR = (submitObj) => {
-    // working correctly - can access form data
-    submitObj.preventDefault();
-    console.log('currently in the handleNewPR function');
-    console.log('submitObj.target: ', submitObj.target[0]);
-    console.log('lift type: ', submitObj.target[1].value);
-    // post request
-
-  }
-
-  const handleShowHistory = (e) => {
-    // not really working - can't find the selected lift
-    e.preventDefault();
-    console.log('currently in the handleShowHistory function');
-    console.log('e target: ', e.target);
-    // get request
-
-  }
-
   return(
     <div id="forms-section-test">
       <div id="lift-form-container">
+        <button onClick={props.newPR}>drilling POST test</button>
+        <button onClick={props.showHistory}>drilling GET test</button>
         <div id="form-header">Select lift to see PR history!</div>
-        <form id="liftHistoryForm" onSubmit={handleShowHistory}>
+        <form id="liftHistoryForm" onSubmit={props.showHistory}>
           <label>Lift: </label>
           {/* <input type="text" /><br/> */}
           <select id="select-lift-menu">
@@ -44,7 +26,7 @@ const Forms = props => {
       </div>
       <div id="newpr-form-container">
         <div id="form-header">Enter a new PR here!</div>
-        <form id="newPR-form-test" onSubmit={handleNewPR}>
+        <form id="newPR-form-test" onSubmit={props.newPR}>
           <label htmlFor="date">Date: </label>
           <input type="text" name="date" placeholder="9.15.22"/><br/>
           <label>Lift: </label>

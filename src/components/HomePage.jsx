@@ -30,7 +30,7 @@ function HomePage() {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        date: '01.01.23',
+        date: '01.02.23',
         // date: data.target[0].value,
         lift: 'deadlift',
         // lift: data.target[1].value,
@@ -77,13 +77,13 @@ function HomePage() {
   // !!TO-DO!! working statically rn - now make it work dynamically!
   // (pass down to forms and pr creator, make url endpoint dynamic based on which pr instance is clicked)
   function handleEditPR(data) {
-    fetch('http://localhost:8080/12.19.22', {
+    fetch('http://localhost:8080/01.02.23', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        weight: 200
+        weight: 500
       })
     })
       .then((res) => res.json())
@@ -98,7 +98,7 @@ function HomePage() {
   // (pass down to forms and pr creator, make url endpoint dynamic based on which pr instance is clicked)
   function handleDeletePR(data) {
     // 8080/data.something
-    fetch('http://localhost:8080/12.19.22', {
+    fetch('http://localhost:8080/01.02.23', {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
@@ -121,8 +121,8 @@ function HomePage() {
       <button onClick={handleNewPR}>Test Post Request</button>
       <button onClick={handleEditPR}>Test Patch Request</button>
       <button onClick={handleDeletePR}>Delete Patch Request</button>
-      <Forms />
-      <HistoryDisplay />
+      <Forms lift={lift} liftHistory={liftHistory} newPR={handleNewPR} showHistory={handleShowHistory} />
+      <HistoryDisplay editPR={handleEditPR} deletePR={handleDeletePR} />
     </div>
 
   )
