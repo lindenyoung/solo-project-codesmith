@@ -92,13 +92,13 @@ function HomePage() {
   // !!TO-DO!! working statically rn - now make it work dynamically!
   // (pass down to forms and pr creator, make url endpoint dynamic based on which pr instance is clicked)
   function handleEditPR(data) {
-    fetch('http://localhost:8080/01.02.23', {
+    fetch('http://localhost:8080/10.31.22', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        weight: 500
+        weight: 405
       })
     })
       .then((res) => res.json())
@@ -114,7 +114,7 @@ function HomePage() {
   function handleDeletePR(e) {
     // console.log(e);
     // make the url dynamic... HOW???
-    fetch('http://localhost:8080/11.25.2022', {
+    fetch('http://localhost:8080/10.31.22', {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'

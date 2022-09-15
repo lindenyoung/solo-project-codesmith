@@ -122,9 +122,9 @@ h1, h2 {
     display: inline-block;
   }
 
-  #select-lift-menu {
-    width: 160px;
-  }
+  // #select-lift-menu {
+  //   width: 160px;
+  // }
 }
 
 #newpr-form-container {
@@ -185,6 +185,10 @@ h1, h2 {
   #pr-data-buttons {
     text-align: left;
     margin-top: .5vw;
+  }
+
+  #delete-button {
+    margin-left: .5vw;
   }
 }
 

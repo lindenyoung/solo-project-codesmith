@@ -9,8 +9,8 @@ const PRDataCreator = props => {
       <div>Weight: {props.info.weight}</div>
       <div id="pr-data-buttons">
         {/* onClick={editHandler} */}
-        <button onClick={props.editPR}>PATCH test</button>
-        <button date={props.info.date} onClick={props.deletePR}>DELETE test</button>
+        <button onClick={props.editPR}>Edit</button>
+        <button id="delete-button" date={props.info.date} onClick={props.deletePR}>Delete</button>
       </div>
     </div>
   )

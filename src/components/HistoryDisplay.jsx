@@ -9,7 +9,7 @@ const HistoryDisplay = props => {
     <div id="history-display-section">
       {/* <button onClick={props.editPR}>drilling PATCH test</button> */}
       {/* {props.lift} below line was dynamic, but was changing with every letter typed */}
-      <h2 id="lift-history-header">PR Progress</h2>
+      <h2 id="lift-history-header">Lift History</h2>
       <PRData liftHistory={props.liftHistory} editPR={props.editPR} deletePR={props.deletePR}/>
     </div>
   )
