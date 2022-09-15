@@ -8,8 +8,8 @@ const HistoryDisplay = props => {
     // {this.props.whateverINameTheLiftSelection}
     <div id="history-display-section">
       {/* <button onClick={props.editPR}>drilling PATCH test</button> */}
-      <h2 id="lift-history-header">"Lift" PR History</h2>
-      <PRData editPR={props.editPR} deletePR={props.deletePR}/>
+      <h2 id="lift-history-header">{props.lift} PR's</h2>
+      <PRData liftHistory={props.liftHistory} editPR={props.editPR} deletePR={props.deletePR}/>
     </div>
   )
 }

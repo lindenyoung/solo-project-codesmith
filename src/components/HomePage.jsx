@@ -21,21 +21,22 @@ function HomePage() {
 
   // functions
   // newPR - post request
-  // !!TO-DO!! working statically rn - now make dynamic!
-  // pass down to Forms, make it dynamic so what is sent is from the form data
+  // working dynamically rn!
   function handleNewPR(data) {
+    data.preventDefault();
+    console.log(data.target);
     fetch('http://localhost:8080', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        date: '01.02.23',
-        // date: data.target[0].value,
-        lift: 'deadlift',
-        // lift: data.target[1].value,
-        weight: 330
-        // weight: data.target[2].value
+        // date: '01.02.23',
+        date: data.target[0].value,
+        // lift: 'deadlift',
+        lift: data.target[1].value,
+        // weight: 330
+        weight: data.target[2].value
       })
     })
       .then((res) => res.json())
@@ -49,18 +50,28 @@ function HomePage() {
   // !!TO-DO!! working statically rn - it is receiving the correct data from db, but is not setting state
   // this is the trickiest function b/c it changes state lift history based on the state lift selection
   // figure out how to change state and have it update
-  function handleShowHistory() {
+  function handleShowHistory(data) {
+    data.preventDefault();
     // 'http://localhost:8080/' + data.target
     // setLiftHistory('hello world');
     // console.log('new state: ', liftHistory);
-
+    let localURL = 'http://localhost:8080/';
+    let input = data.target[0].value;
+    // console.log(input);
+    // console.log(localURL + input);
+    // data.target[0].value
     // change lift state to whatever was selected in lift form
     // then send get request to fetch data for that specific lift from db
-    fetch('http://localhost:8080/' + lift)
+    // + lift was working with lift state set to deadlift
+    fetch(localURL + input)
     .then((res) => res.json())
     .then((data) => {
       // set liftHistory state
       console.log(data);
+
+      // data is correct - the response array of pr instance objects
+      // now just need to set state to be that response data and then iterate over it in PRData
+
       // setTimeout(() => {
       //   setLiftHistory(data)
       //   console.log('in timeout');
@@ -117,12 +128,12 @@ function HomePage() {
         <LiftHistoryButton />
         <NewPRButton />
       </div> */}
-      <button onClick={handleShowHistory}>Test Get Request</button>
+      {/* <button onClick={handleShowHistory}>Test Get Request</button>
       <button onClick={handleNewPR}>Test Post Request</button>
       <button onClick={handleEditPR}>Test Patch Request</button>
-      <button onClick={handleDeletePR}>Delete Patch Request</button>
+      <button onClick={handleDeletePR}>Delete Patch Request</button> */}
       <Forms lift={lift} liftHistory={liftHistory} newPR={handleNewPR} showHistory={handleShowHistory} />
-      <HistoryDisplay editPR={handleEditPR} deletePR={handleDeletePR} />
+      <HistoryDisplay lift={lift} liftHistory={liftHistory} editPR={handleEditPR} deletePR={handleDeletePR} />
     </div>
 
   )

@@ -159,7 +159,9 @@ h1, h2 {
 
 #pr-data-display {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: center;
   border: 4px solid $gray;
   border-radius: 30px;
   height: 80%;
@@ -174,6 +176,7 @@ h1, h2 {
   padding: 1vw;
   height: 20%;
   width: 50%;
+  margin-bottom: 1vw;
 
   #pr-data-buttons {
     text-align: left;
