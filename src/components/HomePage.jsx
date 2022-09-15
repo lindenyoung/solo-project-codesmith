@@ -30,11 +30,11 @@ function HomePage() {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        date: '12.19.22',
+        date: '01.01.23',
         // date: data.target[0].value,
         lift: 'deadlift',
         // lift: data.target[1].value,
-        weight: 400
+        weight: 330
         // weight: data.target[2].value
       })
     })
