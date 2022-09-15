@@ -10,8 +10,10 @@ const PRData = props => {
   // for (let i = 0; i < props.liftHistory.length; i++)
   // const sortedByRecency = props.liftHistory.reverse();
   for (let i = 0; i < props.liftHistory.length; i++) {
-    console.log(props.liftHistory[i]);
+    // console.log(props.liftHistory[i]);
+    // call add instance state func which adds this pr instance to state, can then access the right date in the deletePR func
     prInstances.push(<PRDataCreator info={props.liftHistory[i]} editPR={props.editPR} deletePR={props.deletePR} key={i}/>);
+    // props.addDate;
   }
 
   return(
