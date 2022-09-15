@@ -25,7 +25,7 @@ const Forms = props => {
             <option value="3">squat</option>
             <option value="4">deadlift</option>
           </select> */}
-          <div id="submit-button">
+          <div id="submit-button-history">
             <input id="submit" type="submit" value="Show PR History" />
           </div>
         </form>
