@@ -16,6 +16,7 @@ function HomePage() {
   // STATE
   const [lift, setLift] = useState('deadlift');
   const [liftHistory, setLiftHistory] = useState([]);
+  // const [date, setDate] = useState('');
   // do we need a way to keep track of dates / id's for patch / delete? or can we access those values internally as inputs?
 
   // functions
@@ -81,6 +82,10 @@ function HomePage() {
     .catch((err) => console.log('error'));
   }
 
+  // function changeDate(e) {
+
+  // }
+
   // editPR - patch request
   // !!TO-DO!! working statically rn - now make it work dynamically!
   // (pass down to forms and pr creator, make url endpoint dynamic based on which pr instance is clicked)
@@ -104,9 +109,10 @@ function HomePage() {
   // deletePR - delete request
   // !!TO-DO!! working statically - make dynamic now!
   // (pass down to forms and pr creator, make url endpoint dynamic based on which pr instance is clicked)
-  function handleDeletePR(data) {
+  function handleDeletePR(e) {
+    console.log(e);
     // 8080/data.something
-    fetch('http://localhost:8080/01.02.23', {
+    fetch('http://localhost:8080/12.25.22', {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'

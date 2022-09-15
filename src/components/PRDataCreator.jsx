@@ -5,12 +5,12 @@ const PRDataCreator = props => {
   return (
     // data comes from fetch request response (in props)
     <div id="pr-data-instance">
-      <div>Date: </div>
-      <div>Weight: </div>
+      <div>Date: {props.info.date}</div>
+      <div>Weight: {props.info.weight}</div>
       <div id="pr-data-buttons">
         {/* onClick={editHandler} */}
         <button onClick={props.editPR}>PATCH test</button>
-        <button onClick={props.deletePR}>DELETE test</button>
+        <button date={props.info.date} onClick={props.deletePR}>DELETE test</button>
       </div>
     </div>
   )

@@ -8,8 +8,10 @@ const PRData = props => {
   // render the array below where PRData is currently
   const prInstances = [];
   // for (let i = 0; i < props.liftHistory.length; i++)
+  // const sortedByRecency = props.liftHistory.reverse();
   for (let i = 0; i < props.liftHistory.length; i++) {
-    prInstances.push(<PRDataCreator editPR={props.editPR} deletePR={props.deletePR} key={i}/>);
+    console.log(props.liftHistory[i]);
+    prInstances.push(<PRDataCreator info={props.liftHistory[i]} editPR={props.editPR} deletePR={props.deletePR} key={i}/>);
   }
 
   return(
