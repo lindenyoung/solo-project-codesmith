@@ -56,6 +56,7 @@ function HomePage() {
     // console.log('e target val: ', e.target.value);
     setLift(e.target.value);
     console.log('new lift state: ', lift);
+    console.log('lift history: ', liftHistory);
   }
 
   function handleShowHistory(data) {
@@ -75,6 +76,7 @@ function HomePage() {
       console.log(data); // this data is correct - the response array of pr instance objects
       // set liftHistory state to be response data and then iterate over it in PRData
       // setLiftHistory(data);
+      setLiftHistory(data);
     })
     .catch((err) => console.log('error'));
   }

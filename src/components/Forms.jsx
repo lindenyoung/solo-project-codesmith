@@ -18,7 +18,7 @@ const Forms = props => {
         <form id="liftHistoryForm" onSubmit={props.showHistory}>
           <label>Lift: </label>
           <input type="text" placeholder="deadlift" onChange={props.changeLift}/><br/>
-          {/* <select id="select-lift-menu">
+          {/* <select id="select-lift-menu" onChange={props.changeLift}>
             <option value="0">-</option>
             <option value="1">bench-press</option>
             <option value="2">overhead-press</option>
